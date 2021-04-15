@@ -31,7 +31,7 @@ where the asterisk represents the number to be determined and the numbers record
 
 ### Variations on example 1
 
-Even simpler rules generate other number sequences.
+Let's look at some even simpler rules and how they generate other number sequences.
 
 The rule 
 
