@@ -105,7 +105,7 @@ The Wikipedia gallery "[List of fractals by Hausdorff dimension](https://en.wiki
 
 ## How do these ideas connect?
 
-Let's start with a famous example.  If we color-code the entries of Pascal's triangle according to whether they are even or odd — that is, if we color-code their residues modulo 2 — then [the pattern that emerges](http://larryriddle.agnesscott.org/ifs/siertri/Pascal.htm) is an approximation of the fractal known as the [Sierpinski triangle](https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle).  The correspondence is exact at the "view from infinity," so to speak.  We can summarize this by saying **the nonzero residues of Pascal's triangle modulo 2 generate the Sierpinski triangle.**
+Let's start with a famous example.  If we color-code the entries of Pascal's triangle according to whether they are even or odd — that is, if we color-code their residues modulo 2 — then [the pattern that emerges](http://larryriddle.agnesscott.org/ifs/siertri/Pascal.htm) is an approximation of the fractal known as the [Sierpinski triangle](https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle).  The correspondence is exact at the "view from infinity," so to speak.  We can summarize this by saying the nonzero residues of Pascal's triangle modulo 2 generate the Sierpinski triangle.
 
 For another example, the nonzero residues of the Delannoy numbers modulo 3 generate the [Sierpinski carpet](https://en.wikipedia.org/wiki/Sierpi%C5%84ski_carpet), another famous fractal.
 
