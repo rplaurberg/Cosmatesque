@@ -3,6 +3,12 @@ Cosmatesque is a fractal-making program. It uses recurrence relations and modula
 
 The user controls the parameters of the recurrence relation, modulus, and color-coding rules. The results are immediately reflected in a simplified preview on screen.  The user can save a higher resolution version of the image to their computer.
 
+`Cosmateseque.py` contains the GUI and interactive elements.  The file `fractal.py` defines a class that handles the mathematical and image-making elements.
+
+By default images are saved with their parameters as a filename.  If you wish to explore beyond the constraints of the GUI the `make_image` method in `fractal.py` allows picture generation using arbitrary parameters.
+
+The rest of this document discusses the underlying mathematical ideas.
+
 ## What are recurrence relations?
 
 A recurrence relation is a sequence of numbers in which the first few are specified and the rest are determined by a rule.  This program specifically looks at "path-counting" recurrence relations (my term) which have the following characteristics:
