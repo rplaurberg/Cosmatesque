@@ -3,9 +3,9 @@ Cosmatesque is a fractal-making program. It uses recurrence relations and modula
 
 The user controls the parameters of the recurrence relation, modulus, and color-coding rules. The results are immediately reflected in a simplified preview on screen.  The user can save a higher resolution version of the image to their computer.
 
-`Cosmateseque.py` contains the GUI and interactive elements.  The file `fractal.py` defines a class that handles the mathematical and image-making elements.
+`Cosmateseque.py` contains the GUI and interactive elements.  The file `fractal.py` defines a class that handles the mathematical and image-making capacities.
 
-By default images are saved with their parameters as a filename.  If you wish to explore beyond the constraints of the GUI the `make_image` method in `fractal.py` allows picture generation using arbitrary parameters.
+By default images are saved with their parameters as a filename.  If you wish to explore beyond the constraints of the GUI the `make_image` method in `fractal.py` allows picture generation using arbitrary parameters with the same textual format.
 
 The rest of this document discusses the underlying mathematical ideas.
 
