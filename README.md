@@ -139,7 +139,7 @@ Flip that to turn it into a move set:
 
 >Moves: `* 2`
 
-We can interpret this as signifying two possible ways to move from each square to the square immediately to the right.  This can mean two differently colored paths, if we're talking paths, or perhaps two different flourishes if we're imagining chess pieces.  The number of ways of combining these colors/flourishes compounds as we proceed:
+We can interpret this as signifying two possible ways to move from each square to the square immediately to the right.  This can mean two differently colored paths, if we're talking paths, or perhaps two different flourishes if we're imagining chess pieces.  The number of ways of combining these colors/flourishes doubles as we proceed:
 
 >Values: `1 2 4 8 16 32 64 128 256 512 ...`
 
