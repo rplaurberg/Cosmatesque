@@ -1,5 +1,5 @@
 # Cosmatesque
-Cosmatesque is a fractal-making program. It uses recurrence relations and modular arithmetic to generate arrays of integers which are then color-coded.  It requires `PySimpleGUIQT` for its GUI and `Pillow` and `numpy` for image generation.
+Cosmatesque is a fractal-making program. It uses recurrence relations and modular arithmetic to generate arrays of integers which are then color-coded.  It requires `PySimpleGUIQt` for its GUI and `Pillow` and `numpy` for image generation.
 
 The user controls the parameters of the recurrence relation, modulus, and color-coding rules. The results are immediately reflected in a simplified preview on screen.  The user can save a higher resolution version of the image to their computer.
 
