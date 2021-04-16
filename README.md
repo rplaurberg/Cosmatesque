@@ -45,7 +45,7 @@ The rule
 
 >Rule: `2 *`,
 
-"add twice the previous number" (to nothign else) produces powers of two:
+"add twice the previous number" (to nothing else) produces powers of two:
 
 >Values: `1 2 4 8 16 32 64 128 256 512 ...`
 
