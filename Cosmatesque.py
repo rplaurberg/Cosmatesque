@@ -1,8 +1,16 @@
 import PySimpleGUIQt as sg  # Qt version necessary for changeable button color on Mac
 import random
-import os
+import os, sys, subprocess
 from PIL import Image
 import fractal as fr
+
+# TO DO
+# On Mac:
+# Get "save" button to change to "Working..." immediately upon click
+# Get window element centering to work
+# On Linux:
+# Test program, set appearance and saving parameters
+
 
 # Constants
 CA_SIZE = 3
@@ -77,16 +85,29 @@ saved_picture_size_per_modulus = {
 
 
 # Button sizes for GUI
-square = (60, 60)
-rectangle_coeff = (90, 60)
-rectangle_bw = (102, 30)
-presets = (102, 60)
-long = (316, 30)
-long_tall = (316, 60)
-half = (156, 60)
-long_save = (450, 30)
-long_text_display = (500, 30)
-browse_button = (20, 1)  # not in px
+if sys.platform == 'win32':         # Windows
+    square_px = (60, 60)        # square button for coefficients, residues
+    sq_half_px = (90, 60)       # 1.5 x square button for coefficient operations
+    half_px = (156, 60)         # button to fill half column, used for modulus
+    long_px = (316, 30)         # long single-line button, used for "Apply to coefficients"
+    third_rect_px = (102, 30)   # rectangle to fill 1/3 of column, for residue color operations
+    long_tall_px = (316, 60)    # long & tall button, used for "Randomize all"
+    presets_px = (102, 60)      # tall rectangle to fill 1/3 of colun, for preset parameters
+    save_px = (450, 30)         # spans length of preview images
+    long_text_px = (500, 30)    # long text display, used to show save folder path
+    browse_button = (20, 1)     # saved folder browse button, not in px
+elif sys.platform:                # Mac, sys.platform == 'darwin'; no testing on Linux yet
+    square_px = (60, 55)        # square button for coefficients, residues
+    sq_half_px = (90, 55)       # 1.5 x square button for coefficient operations
+    half_px = (150, 55)         # button to fill half column, used for modulus
+    long_px = (300, 28)         # long single-line button, used for "Apply to coefficients"
+    third_rect_px = (95, 28)    # rectangle to fill 1/3 of column, for residue color operations
+    long_tall_px = (300, 55)    # long & tall button, used for "Randomize all"
+    presets_px = (105, 55)      # tall rectangle to fill 1/3 of colun, for preset parameters
+    save_px = (450, 28)         # spans length of preview images
+    long_text_px = (500, 28)    # long text display, used to show save folder path
+    browse_button = (20, 1)     # saved folder browse button, not in px
+
 
 # Event collections
 coefficient_event_keys = [(x,y) for x in range(CA_SIZE) for y in range(CA_SIZE)]
@@ -96,46 +117,46 @@ black_white_event_keys = [('black/white', residue) for residue in range(MAX_MODU
 # GUI elements
 parameter_column = [[sg.Text('Recurrence coefficients')]]
 
-coefficient_column = [[sg.Button(fractal.coefficients[column][row], size_px=square, pad=(0,0), key=(row, column))
+coefficient_column = [[sg.Button(fractal.coefficients[column][row], size_px=square_px, pad=(0,0), key=(row, column))
                       for row in range(CA_SIZE)] for column in range (CA_SIZE)]
-coefficient_column[-1][-1] = sg.Button('CURSOR', size_px=square, pad=(0,0), disabled=True)
+coefficient_column[-1][-1] = sg.Button('CURSOR', size_px=square_px, pad=(0,0), disabled=True)
 
-coeff_manip_column = [[sg.Button('Clear', size_px=rectangle_coeff, pad=(0,0))],
-                      [sg.Button('Randomize', size_px=rectangle_coeff, pad=(0,0), key='randomize coefficients')],
+coeff_manip_column = [[sg.Button('Clear', size_px=sq_half_px, pad=(0,0))],
+                      [sg.Button('Randomize', size_px=sq_half_px, pad=(0,0), key='randomize coefficients')],
                       [sg.Checkbox('', key='randomize symmetrically')],
                       [sg.Text('Randomize')],
                       [sg.Text('symmetrically')]]
 
 parameter_column += [[sg.Column(coefficient_column), sg.Column(coeff_manip_column, element_justification='center')],
                      [sg.Text('\n')],   # hacky empty space
-                     [sg.Text('Modulus', size_px=half, pad=(0,0), justification='center'),
-                      sg.Button(fractal.modulus, size_px=half, pad=(0,0), key='modulus')],
-                     [sg.Button('Apply to coefficients', size=long, pad=(0,0))],
+                     [sg.Text('Modulus', size_px=half_px, pad=(0,0), justification='center'),
+                      sg.Button(fractal.modulus, size_px=half_px, pad=(0,0), key='modulus')],
+                     [sg.Button('Apply to coefficients', size=long_px, pad=(0,0))],
                      [sg.Text('\n'+'Black/white residues')],
-                     [sg.Button(residue, size_px=square, pad=(0,0), button_color=button_color(fractal, residue),
+                     [sg.Button(residue, size_px=square_px, pad=(0,0), button_color=button_color(fractal, residue),
                                 disabled=(residue >= fractal.modulus), key=('black/white', residue))
                      for residue in range(MAX_MODULUS)],
-                     [sg.Button('Reverse', size_px=rectangle_bw, pad=(0,0)),
-                      sg.Button('Randomize', size_px=rectangle_bw, pad=(0,0), key='randomize black/white'),
-                      sg.Button('Default', size_px=rectangle_bw, pad=(0,0), key='default black/white')],
+                     [sg.Button('Reverse', size_px=third_rect_px, pad=(0,0)),
+                      sg.Button('Randomize', size_px=third_rect_px, pad=(0,0), key='randomize black/white'),
+                      sg.Button('Default', size_px=third_rect_px, pad=(0,0), key='default black/white')],
                      [sg.Text('\n')],
-                     [sg.Button('Randomize all', size_px=long_tall, pad=(0,0))],
+                     [sg.Button('Randomize all', size_px=long_tall_px, pad=(0,0))],
                      [sg.Text('\n')],
-                     [sg.Button('Sierpinski\ntriangle', size_px=presets, pad=(0,0), key='Sierpinski triangle'),
-                      sg.Button('Sierpinski\ncarpet', size_px=presets, pad=(0,0), key='Sierpinski carpet'),
-                      sg.Button("Fredkin's\nreplicator", size_px=presets, pad=(0,0), key="Fredkin's replicator")]
+                     [sg.Button('Sierpinski\ntriangle', size_px=presets_px, pad=(0,0), key='Sierpinski triangle'),
+                      sg.Button('Sierpinski\ncarpet', size_px=presets_px, pad=(0,0), key='Sierpinski carpet'),
+                      sg.Button("Fredkin's\nreplicator", size_px=presets_px, pad=(0,0), key="Fredkin's replicator")]
                      ]
 
 gradient_column = [[sg.Text('Gradient image preview')],
                    [sg.Image(filename='preview_gradient.png', key='preview_gradient')],
-                   [sg.Button('Save', size_px=long_save, pad=(0, 0), key='save gradient')],
+                   [sg.Button('Save', size_px=save_px, pad=(0, 0), key='save gradient')],
                    [sg.Text('Filename:'),
                     sg.Input(default_text=auto_filename('gradient'), key='gradient filename')]
                    ]
 
 bw_column = [[sg.Text('Black and white image preview')],
              [sg.Image(filename='preview_bw.png', key='preview_bw')],
-             [sg.Button('Save', size_px=long_save, pad=(0, 0), key='save bw')],
+             [sg.Button('Save', size_px=save_px, pad=(0, 0), key='save bw')],
              [sg.Text('Filename:'),
               sg.Input(default_text=auto_filename('bw'), key='bw filename')]]
 
@@ -144,7 +165,7 @@ saving_options_column_1 = [
     [sg.Checkbox('Open file after saving', default=True, key='open after save')],
     [sg.Text('Save folder:'),
      sg.Input(default_text=os.getcwd(), enable_events=True, visible=False, key='path'),
-     sg.Text(os.getcwd(), size_px=long_text_display, key='save folder')],
+     sg.Text(os.getcwd(), size_px=long_text_px, key='save folder')],
     [sg.FolderBrowse('Change save directory', size=browse_button, pad=(0,0), target='path')]
 ]
 
@@ -155,12 +176,12 @@ saving_options_column_2 = [
          + ' x '
          + str(saved_picture_size_per_modulus[fractal.modulus]),
          key='saved picture size')],
-    [sg.Button('Smaller', size_px=rectangle_bw, pad=(0, 0)),
-     sg.Button('Larger', size_px=rectangle_bw, pad=(0, 0))],
+    [sg.Button('Smaller', size_px=third_rect_px, pad=(0, 0)),
+     sg.Button('Larger', size_px=third_rect_px, pad=(0, 0))],
     [sg.Text('Larger images will take longer to render.')]
 ]
 
-path_column = [[sg.FolderBrowse('Save to', size=rectangle_bw, pad=(0,0), target='directory'),
+path_column = [[sg.FolderBrowse('Save to', size=third_rect_px, pad=(0,0), target='directory'),
                 sg.Text(os.getcwd(), size=(50,1), key='shown directory'),
                 ]]
 
@@ -344,7 +365,7 @@ while True:
             saved_picture_size_per_modulus[fractal.modulus] //= fractal.modulus
 
     def save_gradient():
-        window.Element('save gradient').Update('Working...')
+        window.Element('save gradient').Update('Working...')  # Why delayed on Mac?
         window.refresh()
         gradient_image = fractal.gradient_image(saved_picture_size_per_modulus[fractal.modulus])
         try:
@@ -356,7 +377,11 @@ while True:
         else:
             # Success!
             if values['open after save']:
-                os.startfile(path_and_filename)
+                if sys.platform == 'win32':
+                    os.startfile(path_and_filename)
+                else:
+                    opener = "open" if sys.platform == "darwin" else "xdg-open"
+                    subprocess.call([opener, path_and_filename])
             else:
                 sg.popup("Saved!", no_titlebar=True, keep_on_top=True)
         window.Element('save gradient').Update('Save')
@@ -374,7 +399,11 @@ while True:
         else:
             # Success!
             if values['open after save']:
-                os.startfile(path_and_filename)
+                if sys.platform == "win32":
+                    os.startfile(path_and_filename)
+                else:
+                    opener = "open" if sys.platform == "darwin" else "xdg-open" #
+                    subprocess.call([opener, path_and_filename])
             else:
                 sg.popup("Saved!", no_titlebar=True, keep_on_top=True)
         window.Element('save bw').Update('Save')
