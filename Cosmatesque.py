@@ -6,10 +6,10 @@ import fractal as fr
 
 # TO DO
 # On Mac:
-# Get "save" button to change to "Working..." immediately upon click
+# Get "Save" button label to change to "Working..." immediately upon click
 # Get window element centering to work
 # On Linux:
-# Test program, set appearance and saving parameters
+# Test program, set appearance parameters
 
 
 # Constants
