@@ -96,7 +96,7 @@ if sys.platform == 'win32':         # Windows
     save_px = (450, 30)         # spans length of preview images
     long_text_px = (500, 30)    # long text display, used to show save folder path
     browse_button = (20, 1)     # saved folder browse button, not in px
-elif sys.platform:                # Mac, sys.platform == 'darwin'; no testing on Linux yet
+else:                             # Mac, sys.platform == 'darwin'; no testing on Linux yet
     square_px = (60, 55)        # square button for coefficients, residues
     sq_half_px = (90, 55)       # 1.5 x square button for coefficient operations
     half_px = (150, 55)         # button to fill half column, used for modulus
