@@ -149,6 +149,10 @@ The chess-piece interpretation lends itself to one of the most beguiling titles 
 
 "Cosmatesque" refers to a type of [medieval mosaic](https://www.researchgate.net/publication/259341701_SIERPINSKY_TRIANGLES_IN_STONE_ON_MEDIEVAL_FLOORS_IN_ROME), some of which included depictions of what we would later call the Sierpinski triangle.  The pictures this program generates can be considered mosaics of pixels.
 
+## What's this gradient stuff?
+
+Each gradient image comes from combining copies of the matching black-and-white image at several zoom levels, using the modulus as a zoom factor.  There is no mathematical significance to this that I know of, but the resulting images have a distinct aesthetic appeal.
+
 ## What is Fredkin's replicator?
 
 Fredkin's replicator is a kind of [cellular automaton](https://oeis.org/A160239), stages of which appear as the nonzero residues of one particular recurrence relation.
