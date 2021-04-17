@@ -5,7 +5,7 @@ The user controls the parameters of the recurrence relation, modulus, and color-
 
 `Cosmateseque.py` contains the GUI and interactive elements.  The file `fractal.py` defines a class that handles the mathematical and image-making capacities.  The program requires `PySimpleGUIQt` for its GUI and `Pillow` and `numpy` for image generation.
 
-By default images are saved with their parameters as a filename.  If you wish to explore beyond the constraints of the GUI the `make_image` method in `fractal.py` allows picture generation using arbitrary parameters with the same textual format.
+By default images are saved with their parameters as a filename.  If you wish to explore beyond the constraints of the GUI the `make_image` method in `fractal.py` allows picture generation using arbitrary parameters (larger coefficient arrays, higher moduli) with the same textual format.
 
 The GUI has been tested on one Windows PC (where it looks great) and one Mac computer (where it looks okay).  It has not yet been tested on a computer running Linux.
 
