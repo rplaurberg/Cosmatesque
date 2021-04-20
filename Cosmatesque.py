@@ -117,8 +117,8 @@ black_white_event_keys = [('black/white', residue) for residue in range(MAX_MODU
 # GUI elements
 parameter_column = [[sg.Text('Recurrence coefficients')]]
 
-coefficient_column = [[sg.Button(fractal.coefficients[column][row], size_px=square_px, pad=(0,0), key=(column, row))
-                      for row in range(CA_SIZE)] for column in range (CA_SIZE)]
+coefficient_column = [[sg.Button(fractal.coefficients[row][column], size_px=square_px, pad=(0,0), key=(row, column))
+                      for column in range(CA_SIZE)] for row in range (CA_SIZE)]
 coefficient_column[-1][-1] = sg.Button('CURSOR', size_px=square_px, pad=(0,0), disabled=True)
 
 coeff_manip_column = [[sg.Button('Clear', size_px=sq_half_px, pad=(0,0))],
@@ -263,9 +263,9 @@ while True:
     # Subsequent functions handle data elements only
 
     def change_coefficient(event):
-        column = event[0]
-        row = event[1]
-        fractal.coefficients[column][row] = (fractal.coefficients[column][row] + 1) % fractal.modulus
+        row = event[0]
+        column = event[1]
+        fractal.coefficients[row][column] = (fractal.coefficients[row][column] + 1) % fractal.modulus
 
     def clear_coefficients():
         for x in range(CA_SIZE):
