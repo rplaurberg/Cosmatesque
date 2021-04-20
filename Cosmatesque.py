@@ -117,7 +117,7 @@ black_white_event_keys = [('black/white', residue) for residue in range(MAX_MODU
 # GUI elements
 parameter_column = [[sg.Text('Recurrence coefficients')]]
 
-coefficient_column = [[sg.Button(fractal.coefficients[column][row], size_px=square_px, pad=(0,0), key=(row, column))
+coefficient_column = [[sg.Button(fractal.coefficients[column][row], size_px=square_px, pad=(0,0), key=(column, row))
                       for row in range(CA_SIZE)] for column in range (CA_SIZE)]
 coefficient_column[-1][-1] = sg.Button('CURSOR', size_px=square_px, pad=(0,0), disabled=True)
 
