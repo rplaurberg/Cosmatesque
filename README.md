@@ -117,7 +117,7 @@ What if we look at moduli that are not primes?  Interestingly, [some results of 
 
 These patterns establish fascinating connections between "local" phenomena — the values in these recurrence relations only "know" nearby numbers — and "global" phenomena, the resulting patterns of arbitrarily large scale.
 
-Think of it this way.  Imagine you're with a bunch of people all playing cards on a wide-open space, something like the National Mall in Washington, D.C.  You're all in small clusters only interacting with those nearby, playing a very simple game with the same rules for everyone except for a single non-player in a far corner.  After a certain amount of time you're asked to stop and hold up the card in your hand.  A helicopter overhead takes an aerial shot of the upheld cards.  Despite a lack of planning on anyone's part, the upheld cards make a pixel-sharp picture as seen from the helicopter, spanning the entire field.
+Think of it this way.  Imagine you're with a bunch of people all playing cards on a wide-open space, something like the National Mall in Washington, D.C.  You're all in small clusters only interacting with those nearby, playing a very simple game with the same rules for everyone except for a single non-player in a far corner.  After a certain amount of time you're asked to stop and lift up the card in your hand.  You hold it skyward.  A helicopter overhead takes an aerial photo of the upheld cards.  Despite a lack of planning on anyone's part, the upheld cards make a pixel-sharp picture, spanning the entire field.
 
 ## Why did you call these "path-counting" recurrence relations?
 
