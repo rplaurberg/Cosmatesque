@@ -21,7 +21,7 @@ This is perhaps best explained by examples.
 
 ### Example 1: The Fibonacci numbers
 
-We'll look at the [Fibonacci numbers](https://en.wikipedia.org/wiki/Fibonacci_number) starting with 1.  The recurrence relation rule for the Fibonacci numbers states that each subsequent number is the sum of the previous two.  We start with 1.  For the next number there is only one previous number, namely 1, and the "the one before that" is in effect "out of bounds" so treated as 0.  Therefore the next entry is 1.  Here's what it looks like if we write these in a sequence:
+We'll look at the [Fibonacci numbers](https://en.wikipedia.org/wiki/Fibonacci_number) starting with 1.  The recurrence relation rule for the Fibonacci numbers states that each subsequent number is the sum of the previous two.  We start with 1.  For the next number there is only one previous number, namely 1, and the "the one before that" is in effect "out of bounds" so treated as 0.  Therefore the next entry is 1.  After that we have two previous numbers per new entry, so we can add both to come up with each new number: 1 + 1 = 2, then 1 + 2 = 3, then 2 + 3 = 5, and so on.  Here's what it looks like if we write these in a sequence:
 
 >Fibonacci numbers: `1 1 2 3 5 8 13 21 34 55 ...`
 
