@@ -135,7 +135,7 @@ Intepret this as "you can move one space forward (only one way) or two spaces fo
 
 >Fibonacci numbers: `1 1 2 3 5 8 13 21 34 55 ...`
 
-Interpret the first 1 at the origin to be the empty path from the origin to itself, consisting of no moves at all.  There is only one way to make no moves at all, so that makes sense.  For the next number, there is only path going from the origin to that first square: move one square right once.  For the square after that, we can either get there by moving one square right twice or two moves right once, hence the number is 2.  And so on.
+Interpret the first 1 at the origin to be the empty path from the origin to itself, consisting of no moves at all.  There is only one way to make no moves at all, so that makes sense.  For the next number, there is only path going from the origin to that first square: move one square right once.  For the square after that, we can either get there by making two consecutive moves of one square right each or one single move leaping two squares right, hence the number is 2.  And so on.
 
 Recall our powers-of-two example earlier, arising from the following rule.
 
