@@ -8,7 +8,7 @@ class Fractal:
     "Describes/generates a fractal using an array of recurrence coefficients and a modulus."
 
     def __init__(self, coefficients=[[0, 1], [1, 0]], modulus=2, white_residues=[1]):
-        # default parameters generate Sierpinski triangle
+        # Default parameters generate the Sierpinski triangle
         self.coefficients = coefficients.copy()
         self.reach = len(coefficients)
         self.modulus = modulus
@@ -69,7 +69,7 @@ class Fractal:
         for x in range(size):
             for y in range(size):
                 if residues[y][x] in self.white_residues:
-                    monochrome_array[x, y] = 255
+                    monochrome_array[y][x] = 255
         img = Image.fromarray(monochrome_array, mode='L')
 
         return img
@@ -111,7 +111,7 @@ class Fractal:
         gradient_array = np.zeros((size, size), dtype=np.uint8)
         for x in range(size):
             for y in range(size):
-                gradient_array[x, y] = int(layered_bw[y][x] * 255 / (depth))
+                gradient_array[y][x] = int(layered_bw[y][x] * 255 / (depth))
         img = Image.fromarray(gradient_array, mode='L')
 
         return img
