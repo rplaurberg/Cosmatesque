@@ -15,7 +15,7 @@ The program requires the following packages/libraries to be installed:
 
 * `PySimpleGUIQt`
 * `Pillow`
-* 'numpy'
+* `numpy`
 
 ## What are recurrence relations?
 
