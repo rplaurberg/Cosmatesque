@@ -6,6 +6,7 @@ import fractal as fr
 
 # TO DO
 # On Mac:
+# Make filename entry box wider
 # Get "Save" button label to change to "Working..." immediately upon click
 # Get window element centering to work
 # On Linux:
@@ -95,8 +96,9 @@ if sys.platform == 'win32':         # Windows
     presets_px = (102, 60)      # tall rectangle to fill 1/3 of colun, for preset parameters
     save_px = (450, 30)         # spans length of preview images
     long_text_px = (500, 30)    # long text display, used to show save folder path
+    text_entry_px = (400, 30)   # filename text input field
     browse_button = (20, 1)     # saved folder browse button, not in px
-else:                             # Mac, sys.platform == 'darwin'; no testing on Linux yet
+else:                               # Mac, sys.platform == 'darwin'; no testing on Linux yet
     square_px = (60, 55)        # square button for coefficients, residues
     sq_half_px = (90, 55)       # 1.5 x square button for coefficient operations
     half_px = (150, 55)         # button to fill half column, used for modulus
@@ -106,6 +108,7 @@ else:                             # Mac, sys.platform == 'darwin'; no testing on
     presets_px = (105, 55)      # tall rectangle to fill 1/3 of colun, for preset parameters
     save_px = (450, 28)         # spans length of preview images
     long_text_px = (500, 28)    # long text display, used to show save folder path
+    text_entry_px = (400, 28)   # filename text input field
     browse_button = (20, 1)     # saved folder browse button, not in px
 
 
@@ -151,14 +154,14 @@ gradient_column = [[sg.Text('Gradient image preview')],
                    [sg.Image(filename='preview_gradient.png', key='preview_gradient')],
                    [sg.Button('Save', size_px=save_px, pad=(0, 0), key='save gradient')],
                    [sg.Text('Filename:'),
-                    sg.Input(default_text=auto_filename('gradient'), key='gradient filename')]
+                    sg.Input(default_text=auto_filename('gradient'), size_px=text_entry_px, key='gradient filename')]
                    ]
 
 bw_column = [[sg.Text('Black and white image preview')],
              [sg.Image(filename='preview_bw.png', key='preview_bw')],
              [sg.Button('Save', size_px=save_px, pad=(0, 0), key='save bw')],
              [sg.Text('Filename:'),
-              sg.Input(default_text=auto_filename('bw'), key='bw filename')]]
+              sg.Input(default_text=auto_filename('bw'), size_px=text_entry_px, key='bw filename')]]
 
 saving_options_column_1 = [
     [sg.Checkbox('Automatic file names  (extension .png not shown)', default=True, enable_events=True, key='auto filename')],
