@@ -11,7 +11,7 @@ The GUI has been tested on one Windows PC (where it looks great) and one Mac (wh
 
 ## Requirements
 
-The program requires installation of the following packages/libraries (in their `pip install` spellings):
+The program requires the following packages/libraries to be installed (`pip install` ...):
 
 * `PySimpleGUIQt`
 * `Pillow`
