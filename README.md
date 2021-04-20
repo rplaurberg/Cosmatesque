@@ -1,5 +1,5 @@
 # Cosmatesque
-Cosmatesque is a fractal-making program. It uses recurrence relations and modular arithmetic to generate arrays of integers which are then color-coded.
+Cosmatesque is a fractal-making program. It uses recurrence relations and modular arithmetic to generate arrays of integers which are then color-coded.  [Here is a picture of the interface and a gallery of some of the images it can produce.](https://imgur.com/a/ZQ1zWFy)
 
 The user controls the parameters of the recurrence relation, modulus, and color-coding rules. The results are immediately reflected in a simplified preview on screen.  The user can save a high-resolution image of the pattern to their computer.
 
