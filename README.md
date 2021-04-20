@@ -9,6 +9,14 @@ By default images are saved with their parameters as a filename.  If you wish to
 
 The GUI has been tested on one Windows PC (where it looks great) and one Mac (where it looks okay).  It has not yet been tested on a computer running Linux.
 
+## Requirements
+
+The program requires installation of the following packages/libraries (in their `pip install` spellings):
+
+* `PySimpleGUIQt`
+* `Pillow`
+* 'numpy'
+
 ## What are recurrence relations?
 
 A recurrence relation is a sequence of numbers in which the first few are specified and the rest are determined by a rule.  This program specifically looks at "path-counting" recurrence relations (my term) which have the following characteristics:
