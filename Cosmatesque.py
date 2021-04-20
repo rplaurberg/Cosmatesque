@@ -6,7 +6,6 @@ import fractal as fr
 
 # TO DO
 # On Mac:
-# Make filename entry box wider
 # Get "Save" button label to change to "Working..." immediately upon click
 # Get window element centering to work
 # On Linux:
