@@ -120,7 +120,8 @@ class Fractal:
 def make_image(coefficients=[[0, 1], [1]],
                modulus=2,
                white_residues=[1],
-               picture='bw',size=1024):
+               picture='bw',size=1024,
+               open_file=False):
     "Generates and saves an image using Cosmatesque filenames as arguments"
     # Useful for people who want to explore beyond the limitations of the GUI:
     # for example, iterating over a range of parameters or using larger coefficient arrays.
@@ -146,9 +147,9 @@ def make_image(coefficients=[[0, 1], [1]],
         img = fr.gradient_image(size=size)
     img.save(filename)
     
-    # Open just-saved image file
-    if sys.platform == 'win32':
-        os.startfile(filename)
-    else:
-        opener = "open" if sys.platform == "darwin" else "xdg-open"
-        subprocess.call([opener, filename])
+    if open_file:
+        if sys.platform == 'win32':
+            os.startfile(filename)
+        else:
+            opener = "open" if sys.platform == "darwin" else "xdg-open"
+            subprocess.call([opener, filename])
