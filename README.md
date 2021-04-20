@@ -113,6 +113,12 @@ The connection is much deeper, however.  According to [this result of Pan](https
 
 What if we look at moduli that are not primes?  Interestingly, [some results of Gamelin and Mnatsakanian](https://www.researchgate.net/publication/39676484_Arithmetic_based_fractals_associated_with_Pascal's_triangle) demonstrate that for Pascal's triangle, the fractal dimension of the pattern of nonzero residues modulo a power of a prime is exactly that of the fractal dimension of the pattern of nonzero residues modulo that prime raised only to the first power.  Even though the pattern becomes more complicated, the fractal dimension is some kind of invariant across powers of the prime.  Exploration of other patterns suggest this may be true for other recurrence relations as well. Research is ongoing.
 
+## Why is this interesting?
+
+These patterns establish fascinating connections between "local" phenomena --- the values in these recurrence relations only "know" nearby numbers --- and "global" phenomena, the resulting pattern of arbitrarily large scale.
+
+Think of it this way.  Imagine you're with a bunch of people all playing cards on a wide-open space, something like the National Mall in Washington, D.C.  You're all in small clusters only interacting with those nearby, playing a very simple game with the same rules for everyone except for a single non-player in a far corner.  After a certain amount of time you're asked to stop and hold up the card in your hand.  A helicopter overhead takes an aerial shot of the upheld cards.  Despite a lack of planning on anyone's part, the upheld cards make a pixel-sharp picture as seen from the helicopter, spanning the entire field.
+
 ## Why did you call these "path-counting" recurrence relations?
 
 The characteristics of path-counting recurrence relations listed above — start with a 1, have a fixed set of rules, and ignore out-of-bound references — mean that the resulting grids of numbers count the number of paths from the origin to each square using moves described by the rule grid.  This is more apparent if we flip the rule grids.
