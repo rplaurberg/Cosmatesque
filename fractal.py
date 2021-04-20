@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 import copy
-import os
+import os, sys, subprocess
 
 
 class Fractal:
@@ -139,10 +139,16 @@ def make_image(coefficients=[[0, 1], [1]],
                 + ".png"
                 )
 
-    # Save and open image
+    # Save image
     if picture == 'bw':
         img = fr.bw_image(size=size)
     else:
         img = fr.gradient_image(size=size)
     img.save(filename)
-    os.startfile(filename)
+    
+    # Open just-saved image file
+    if sys.platform == 'win32':
+        os.startfile(filename)
+    else:
+        opener = "open" if sys.platform == "darwin" else "xdg-open"
+        subprocess.call([opener, filename])
