@@ -29,7 +29,7 @@ The rule "each new number is the sum of the previous two" can be symbolized like
 
 >Rule: `1 1 *`,
 
-where the asterisk represents the number to be determined (the "cursor") and the numbers record the multiple of the previous entries to be added together.
+where the asterisk represents the number to be determined (the "cursor") and the numbers record the multiples of the previous entries to be added together.
 
 ### Variations on example 1
 
